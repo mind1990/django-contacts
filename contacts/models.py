@@ -3,7 +3,11 @@ from django.db import models
 # DATETIME
 from datetime import datetime
 
+# IMPORT DJANGO USER MODEL
+from django.contrib.auth.models import User
+
 class Contact(models.Model):
+	user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='contacts')
 	first_name = models.CharField(max_length=25)
 	last_name = models.CharField(max_length=25)
 	cell_phone = models.CharField(max_length=25, blank=True)
