@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h3>Contacts list</h3>
+
+	{% if contacts %}
+	<ul>
+		{% for contact in contacts %}
+		<li>
+			<a href="{% url 'contact' contact_id=contact.id %}">
+				{{ contact.first_name }} {{ contact.last_name }}
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+	{% else %}
+		<p>No contacts available...</p>
+	{% endif %}
+
+
+{% endblock %}
